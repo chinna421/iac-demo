@@ -1,7 +1,7 @@
 module "s3_bucket" {
   source = "terraform-aws-modules/s3-bucket/aws"
 
-  bucket = "venkat-s3-bucket45678"
+  bucket = "ravi-s3-bucket45678"
   acl    = "private"
 
   control_object_ownership = true
