@@ -1,0 +1,23 @@
+pipeline{
+    agent any
+    tools {
+        terraform 'terraform-11'
+    }	
+    stages{
+        stage('Git Checkout'){
+            steps{
+               git credentialsId: '716a1ab7-e3e1-4068-9c46-f2f7bd9ad86a', url: 'https://github.com/chinna421/iac-demo.git' 
+            }
+        }
+        stage('Terraform init'){
+            steps{
+                sh label:'',script: 'terraform init'
+            }
+        }
+         stage('Terraform Apply'){
+            steps{
+                sh label:'',script: 'terraform apply --auto-approve'
+            }
+        }
+    }
+}
